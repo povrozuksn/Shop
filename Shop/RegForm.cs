@@ -10,15 +10,11 @@ using System.Windows.Forms;
 
 namespace Shop
 {
-    public partial class ProductForm : Form
+    public partial class RegForm : Form
     {
-        public ProductForm(string name)
+        public RegForm()
         {
             InitializeComponent();
-
-            Text = name;
-            ProductLabel.Text = name;
-            ProductPictureBox.Load("../../Pictures/" + name + ".jpg");
         }
     }
 }

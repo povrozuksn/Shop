@@ -41,15 +41,15 @@
             this.NameTextBox = new System.Windows.Forms.TextBox();
             this.HideButton = new System.Windows.Forms.Button();
             this.MainPanel = new System.Windows.Forms.Panel();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
+            this.label3 = new System.Windows.Forms.Label();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.AuthPanel.SuspendLayout();
             this.FiltrPanel.SuspendLayout();
             this.MainPanel.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // AuthPanel
@@ -72,6 +72,7 @@
             this.RegButton.TabIndex = 2;
             this.RegButton.Text = "Регистрация";
             this.RegButton.UseVisualStyleBackColor = true;
+            this.RegButton.Click += new System.EventHandler(this.RegButton_Click);
             // 
             // NameLabel
             // 
@@ -156,6 +157,7 @@
             this.HideButton.TabIndex = 0;
             this.HideButton.Text = "Скрыть";
             this.HideButton.UseVisualStyleBackColor = true;
+            this.HideButton.Click += new System.EventHandler(this.HideButton_Click);
             // 
             // MainPanel
             // 
@@ -170,25 +172,6 @@
             this.MainPanel.Size = new System.Drawing.Size(1076, 404);
             this.MainPanel.TabIndex = 2;
             // 
-            // pictureBox1
-            // 
-            this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
-            this.pictureBox1.Location = new System.Drawing.Point(29, 24);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(215, 178);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox1.TabIndex = 0;
-            this.pictureBox1.TabStop = false;
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(24, 219);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(136, 25);
-            this.label3.TabIndex = 1;
-            this.label3.Text = "Хлеб ржаной";
-            // 
             // label4
             // 
             this.label4.AutoSize = true;
@@ -197,6 +180,7 @@
             this.label4.Size = new System.Drawing.Size(124, 25);
             this.label4.TabIndex = 3;
             this.label4.Text = "Хлеб белый";
+            this.label4.Click += new System.EventHandler(this.lblProduct_Click);
             // 
             // pictureBox2
             // 
@@ -207,6 +191,30 @@
             this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBox2.TabIndex = 2;
             this.pictureBox2.TabStop = false;
+            this.pictureBox2.Tag = "Хлеб белый";
+            this.pictureBox2.Click += new System.EventHandler(this.picProduct_Click);
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(24, 219);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(136, 25);
+            this.label3.TabIndex = 1;
+            this.label3.Text = "Хлеб ржаной";
+            this.label3.Click += new System.EventHandler(this.lblProduct_Click);
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
+            this.pictureBox1.Location = new System.Drawing.Point(29, 24);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(215, 178);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox1.TabIndex = 0;
+            this.pictureBox1.TabStop = false;
+            this.pictureBox1.Tag = "Хлеб ржаной";
+            this.pictureBox1.Click += new System.EventHandler(this.picProduct_Click);
             // 
             // MainForm
             // 
@@ -226,8 +234,8 @@
             this.FiltrPanel.PerformLayout();
             this.MainPanel.ResumeLayout(false);
             this.MainPanel.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
 
         }

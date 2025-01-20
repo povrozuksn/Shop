@@ -47,6 +47,7 @@
             this.ProductPictureBox.Location = new System.Drawing.Point(31, 61);
             this.ProductPictureBox.Name = "ProductPictureBox";
             this.ProductPictureBox.Size = new System.Drawing.Size(323, 314);
+            this.ProductPictureBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.ProductPictureBox.TabIndex = 1;
             this.ProductPictureBox.TabStop = false;
             // 
