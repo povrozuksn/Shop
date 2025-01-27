@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Shop.Properties;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -28,7 +29,12 @@ namespace Shop
             period = _period;
             price = _price;
             picture = new PictureBox();
-            picture.Load("../../Pictures/" + name + ".jpg");
+            try
+            {
+                picture.Load("../../Pictures/" + name + ".jpg");
+            }
+            catch (Exception) { }           
+
             label = new Label();
             label.Text = name;
         }
@@ -37,7 +43,7 @@ namespace Shop
     
     public partial class MainForm : Form
     {
-        List<Product> products = new List<Product>();
+        Product[] products = new Product[5];
 
         public MainForm()
         {
@@ -87,6 +93,25 @@ namespace Shop
         {
             RegForm frm = new RegForm();
             frm.ShowDialog();
+        }
+
+        private void MainForm_Load(object sender, EventArgs e)
+        {
+            int x = 30;
+            for(int i=0; i<5; i++)
+            {
+                products[i].picture.Location = new Point(x, 25);
+                products[i].picture.Size = new Size(215, 178);
+                products[i].picture.SizeMode = PictureBoxSizeMode.Zoom;
+                products[i].picture.Click += new EventHandler(picProduct_Click);
+                MainPanel.Controls.Add(products[i].picture);
+
+                products[i].label.Location = new Point(x, 220);
+                products[i].label.Size = new Size(136, 25);
+                MainPanel.Controls.Add(products[i].label);
+
+                x += 250;
+            }
         }
     }
 }
