@@ -33,7 +33,8 @@ namespace Shop
             {
                 picture.Load("../../Pictures/" + name + ".jpg");
             }
-            catch (Exception) { }           
+            catch (Exception) { }
+            picture.Tag = name;
 
             label = new Label();
             label.Text = name;
@@ -64,15 +65,27 @@ namespace Shop
         private void picProduct_Click(object sender, EventArgs e)
         {
             PictureBox pb = (PictureBox)sender;
-            ProductForm frm = new ProductForm(pb.Tag.ToString());
-            frm.Show();
+            for(int i=0; i<5; i++)
+            {
+                if(pb.Tag.ToString() == products[i].name)
+                {
+                    ProductForm frm = new ProductForm(products[i]);
+                    frm.Show();
+                }
+            }
         }
 
         private void lblProduct_Click(object sender, EventArgs e)
         {
             Label lbl = (Label)sender;
-            ProductForm frm = new ProductForm(lbl.Text);
-            frm.Show();
+            for (int i = 0; i < 5; i++)
+            {
+                if (lbl.Text == products[i].name)
+                {
+                    ProductForm frm = new ProductForm(products[i]);
+                    frm.Show();
+                }
+            }
         }
 
         private void HideButton_Click(object sender, EventArgs e)
@@ -98,19 +111,26 @@ namespace Shop
         private void MainForm_Load(object sender, EventArgs e)
         {
             int x = 30;
+            int y = 25;
             for(int i=0; i<5; i++)
             {
-                products[i].picture.Location = new Point(x, 25);
+                products[i].picture.Location = new Point(x, y);
                 products[i].picture.Size = new Size(215, 178);
                 products[i].picture.SizeMode = PictureBoxSizeMode.Zoom;
                 products[i].picture.Click += new EventHandler(picProduct_Click);
                 MainPanel.Controls.Add(products[i].picture);
 
-                products[i].label.Location = new Point(x, 220);
+                products[i].label.Location = new Point(x, y+200);
                 products[i].label.Size = new Size(136, 25);
+                products[i].label.Click += new EventHandler(lblProduct_Click);
                 MainPanel.Controls.Add(products[i].label);
 
                 x += 250;
+                if(x+215 > MainPanel.Width)
+                {
+                    x = 30;
+                    y += 250;
+                }
             }
         }
     }

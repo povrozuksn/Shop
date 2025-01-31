@@ -158,20 +158,21 @@
             this.MainPanel.Dock = System.Windows.Forms.DockStyle.Fill;
             this.MainPanel.Location = new System.Drawing.Point(0, 167);
             this.MainPanel.Name = "MainPanel";
-            this.MainPanel.Size = new System.Drawing.Size(1076, 404);
+            this.MainPanel.Size = new System.Drawing.Size(1076, 454);
             this.MainPanel.TabIndex = 2;
             // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 25F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1076, 571);
+            this.ClientSize = new System.Drawing.Size(1076, 621);
             this.Controls.Add(this.MainPanel);
             this.Controls.Add(this.FiltrPanel);
             this.Controls.Add(this.AuthPanel);
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.Name = "MainForm";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Магазин";
             this.Load += new System.EventHandler(this.MainForm_Load);
             this.AuthPanel.ResumeLayout(false);

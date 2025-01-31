@@ -16,5 +16,10 @@ namespace Shop
         {
             InitializeComponent();
         }
+
+        private void RegForm_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

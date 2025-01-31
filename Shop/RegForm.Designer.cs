@@ -151,6 +151,7 @@
             this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.Name = "RegForm";
             this.Text = "Форма регистрации";
+            this.Load += new System.EventHandler(this.RegForm_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 
