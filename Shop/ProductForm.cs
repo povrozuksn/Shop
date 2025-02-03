@@ -21,7 +21,7 @@ namespace Shop
             ProductPictureBox.Image = product.picture.Image;
             CategoryLabel.Text = "Категория товара: " + product.category;
             CalLabel.Text = "Энергетическая ценность: " + product.сalorie.ToString() + " Ккал";
-            PeriodLabel.Text = "Срок хранения: " + product.period.ToString() + " дней";
+            PeriodLabel.Text = "Срок хранения: " + product.period.ToString() + " суток";
             PriceLabel.Text = "Цена: " + product.price.ToString() + " руб.";
         }
 

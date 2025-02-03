@@ -44,7 +44,8 @@ namespace Shop
     
     public partial class MainForm : Form
     {
-        Product[] products = new Product[5];
+        static int count = 10;
+        Product[] products = new Product[count];
 
         public MainForm()
         {
@@ -59,13 +60,18 @@ namespace Shop
             products[2] = new Product("Молоко 32%", "Кисломолочные продукты", 64, 7, 90);
             products[3] = new Product("Кефир", "Кисломолочные продукты", 53, 14, 70);
             products[4] = new Product("Колбаса", "Мясные продукты", 257, 7, 170);
+            products[5] = new Product("Сосиски", "Мясные продукты", 240, 10, 300);
+            products[6] = new Product("Апельсины", "Фрукты", 43, 20, 380);
+            products[7] = new Product("Мандарины", "Фрукты", 38, 20, 90);
+            products[8] = new Product("Капуста", "Овощи", 25, 100, 52);
+            products[9] = new Product("Свекла", "Овощи", 57, 100, 100);
 
         }
 
         private void picProduct_Click(object sender, EventArgs e)
         {
             PictureBox pb = (PictureBox)sender;
-            for(int i=0; i<5; i++)
+            for(int i=0; i<count; i++)
             {
                 if(pb.Tag.ToString() == products[i].name)
                 {
@@ -78,7 +84,7 @@ namespace Shop
         private void lblProduct_Click(object sender, EventArgs e)
         {
             Label lbl = (Label)sender;
-            for (int i = 0; i < 5; i++)
+            for (int i=0; i<count; i++)
             {
                 if (lbl.Text == products[i].name)
                 {
@@ -112,7 +118,7 @@ namespace Shop
         {
             int x = 30;
             int y = 25;
-            for(int i=0; i<5; i++)
+            for(int i=0; i<count; i++)
             {
                 products[i].picture.Location = new Point(x, y);
                 products[i].picture.Size = new Size(215, 178);
@@ -130,6 +136,37 @@ namespace Shop
                 {
                     x = 30;
                     y += 250;
+                }
+            }
+        }
+
+        private void FindButton_Click(object sender, EventArgs e)
+        {
+            int x = 30;
+            int y = 25;
+            for (int i = 0; i < count; i++)
+            {
+                products[i].picture.Visible = true;
+                products[i].label.Visible = true;
+
+                if(CategoryComboBox.Text != "" && CategoryComboBox.Text != products[i].category)
+                {
+                    products[i].picture.Visible = false;
+                    products[i].label.Visible = false;
+                }
+
+
+                if (products[i].picture.Visible)
+                {
+                    products[i].picture.Location = new Point(x, y);
+                    products[i].label.Location = new Point(x, y + 200);
+
+                    x += 250;
+                    if (x + 215 > MainPanel.Width)
+                    {
+                        x = 30;
+                        y += 250;
+                    }
                 }
             }
         }

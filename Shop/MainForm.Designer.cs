@@ -101,12 +101,13 @@
             // 
             // FindButton
             // 
-            this.FindButton.Location = new System.Drawing.Point(902, 62);
+            this.FindButton.Location = new System.Drawing.Point(900, 62);
             this.FindButton.Name = "FindButton";
             this.FindButton.Size = new System.Drawing.Size(142, 32);
             this.FindButton.TabIndex = 5;
             this.FindButton.Text = "Найти";
             this.FindButton.UseVisualStyleBackColor = true;
+            this.FindButton.Click += new System.EventHandler(this.FindButton_Click);
             // 
             // label2
             // 
@@ -120,9 +121,16 @@
             // CategoryComboBox
             // 
             this.CategoryComboBox.FormattingEnabled = true;
+            this.CategoryComboBox.Items.AddRange(new object[] {
+            "",
+            "Хлебобулочные изделия",
+            "Кисломолочные продукты",
+            "Мясные продукты",
+            "Фрукты",
+            "Овощи"});
             this.CategoryComboBox.Location = new System.Drawing.Point(465, 59);
             this.CategoryComboBox.Name = "CategoryComboBox";
-            this.CategoryComboBox.Size = new System.Drawing.Size(190, 33);
+            this.CategoryComboBox.Size = new System.Drawing.Size(301, 33);
             this.CategoryComboBox.TabIndex = 3;
             // 
             // label1
