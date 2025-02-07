@@ -149,7 +149,31 @@ namespace Shop
                 products[i].picture.Visible = true;
                 products[i].label.Visible = true;
 
-                if(CategoryComboBox.Text != "" && CategoryComboBox.Text != products[i].category)
+                if (NameTextBox.Text != "" && !products[i].name.Contains(NameTextBox.Text))
+                {
+                    products[i].picture.Visible = false;
+                    products[i].label.Visible = false;
+                }
+
+                if (CategoryComboBox.Text != "" && CategoryComboBox.Text != products[i].category)
+                {
+                    products[i].picture.Visible = false;
+                    products[i].label.Visible = false;
+                }
+
+                if (KallTextBox.Text != "" && Convert.ToInt32(KallTextBox.Text) < products[i].сalorie)
+                {
+                    products[i].picture.Visible = false;
+                    products[i].label.Visible = false;
+                }
+
+                if (PriceToComboBox.Text != "" && Convert.ToInt32(PriceToComboBox.Text) >= products[i].price)
+                {
+                    products[i].picture.Visible = false;
+                    products[i].label.Visible = false;
+                }
+
+                if (PriceFromComboBox.Text != "" && Convert.ToInt32(PriceFromComboBox.Text) <= products[i].price)
                 {
                     products[i].picture.Visible = false;
                     products[i].label.Visible = false;
