@@ -33,6 +33,13 @@
             this.NameLabel = new System.Windows.Forms.Label();
             this.AuthButton = new System.Windows.Forms.Button();
             this.FiltrPanel = new System.Windows.Forms.Panel();
+            this.label6 = new System.Windows.Forms.Label();
+            this.PriceFromComboBox = new System.Windows.Forms.ComboBox();
+            this.label5 = new System.Windows.Forms.Label();
+            this.label4 = new System.Windows.Forms.Label();
+            this.PriceToComboBox = new System.Windows.Forms.ComboBox();
+            this.label3 = new System.Windows.Forms.Label();
+            this.KallTextBox = new System.Windows.Forms.TextBox();
             this.FindButton = new System.Windows.Forms.Button();
             this.label2 = new System.Windows.Forms.Label();
             this.CategoryComboBox = new System.Windows.Forms.ComboBox();
@@ -40,13 +47,6 @@
             this.NameTextBox = new System.Windows.Forms.TextBox();
             this.HideButton = new System.Windows.Forms.Button();
             this.MainPanel = new System.Windows.Forms.Panel();
-            this.label3 = new System.Windows.Forms.Label();
-            this.KallTextBox = new System.Windows.Forms.TextBox();
-            this.label4 = new System.Windows.Forms.Label();
-            this.PriceToComboBox = new System.Windows.Forms.ComboBox();
-            this.label5 = new System.Windows.Forms.Label();
-            this.label6 = new System.Windows.Forms.Label();
-            this.PriceFromComboBox = new System.Windows.Forms.ComboBox();
             this.AuthPanel.SuspendLayout();
             this.FiltrPanel.SuspendLayout();
             this.SuspendLayout();
@@ -112,6 +112,89 @@
             this.FiltrPanel.Name = "FiltrPanel";
             this.FiltrPanel.Size = new System.Drawing.Size(1076, 120);
             this.FiltrPanel.TabIndex = 1;
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(629, 83);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(35, 25);
+            this.label6.TabIndex = 12;
+            this.label6.Text = "до";
+            // 
+            // PriceFromComboBox
+            // 
+            this.PriceFromComboBox.FormattingEnabled = true;
+            this.PriceFromComboBox.Items.AddRange(new object[] {
+            "0",
+            "100",
+            "200",
+            "300",
+            "400",
+            "500",
+            "600",
+            "700",
+            "800",
+            "900",
+            "1000"});
+            this.PriceFromComboBox.Location = new System.Drawing.Point(670, 80);
+            this.PriceFromComboBox.Name = "PriceFromComboBox";
+            this.PriceFromComboBox.Size = new System.Drawing.Size(96, 33);
+            this.PriceFromComboBox.TabIndex = 11;
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(460, 83);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(35, 25);
+            this.label5.TabIndex = 10;
+            this.label5.Text = "от";
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(350, 83);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(104, 25);
+            this.label4.TabIndex = 9;
+            this.label4.Text = "Цена, руб.";
+            // 
+            // PriceToComboBox
+            // 
+            this.PriceToComboBox.FormattingEnabled = true;
+            this.PriceToComboBox.Items.AddRange(new object[] {
+            "0",
+            "100",
+            "200",
+            "300",
+            "400",
+            "500",
+            "600",
+            "700",
+            "800",
+            "900",
+            "1000"});
+            this.PriceToComboBox.Location = new System.Drawing.Point(501, 80);
+            this.PriceToComboBox.Name = "PriceToComboBox";
+            this.PriceToComboBox.Size = new System.Drawing.Size(96, 33);
+            this.PriceToComboBox.TabIndex = 8;
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(19, 81);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(172, 25);
+            this.label3.TabIndex = 7;
+            this.label3.Text = "Калорийность до";
+            // 
+            // KallTextBox
+            // 
+            this.KallTextBox.Location = new System.Drawing.Point(197, 78);
+            this.KallTextBox.Name = "KallTextBox";
+            this.KallTextBox.Size = new System.Drawing.Size(121, 30);
+            this.KallTextBox.TabIndex = 6;
             // 
             // FindButton
             // 
@@ -182,89 +265,7 @@
             this.MainPanel.Name = "MainPanel";
             this.MainPanel.Size = new System.Drawing.Size(1076, 454);
             this.MainPanel.TabIndex = 2;
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(19, 81);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(172, 25);
-            this.label3.TabIndex = 7;
-            this.label3.Text = "Калорийность до";
-            // 
-            // KallTextBox
-            // 
-            this.KallTextBox.Location = new System.Drawing.Point(197, 78);
-            this.KallTextBox.Name = "KallTextBox";
-            this.KallTextBox.Size = new System.Drawing.Size(121, 30);
-            this.KallTextBox.TabIndex = 6;
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(350, 83);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(104, 25);
-            this.label4.TabIndex = 9;
-            this.label4.Text = "Цена, руб.";
-            // 
-            // PriceToComboBox
-            // 
-            this.PriceToComboBox.FormattingEnabled = true;
-            this.PriceToComboBox.Items.AddRange(new object[] {
-            "0",
-            "100",
-            "200",
-            "300",
-            "400",
-            "500",
-            "600",
-            "700",
-            "800",
-            "900",
-            "1000"});
-            this.PriceToComboBox.Location = new System.Drawing.Point(501, 80);
-            this.PriceToComboBox.Name = "PriceToComboBox";
-            this.PriceToComboBox.Size = new System.Drawing.Size(96, 33);
-            this.PriceToComboBox.TabIndex = 8;
-            // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(460, 83);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(35, 25);
-            this.label5.TabIndex = 10;
-            this.label5.Text = "от";
-            // 
-            // label6
-            // 
-            this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(629, 83);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(35, 25);
-            this.label6.TabIndex = 12;
-            this.label6.Text = "до";
-            // 
-            // PriceFromComboBox
-            // 
-            this.PriceFromComboBox.FormattingEnabled = true;
-            this.PriceFromComboBox.Items.AddRange(new object[] {
-            "0",
-            "100",
-            "200",
-            "300",
-            "400",
-            "500",
-            "600",
-            "700",
-            "800",
-            "900",
-            "1000"});
-            this.PriceFromComboBox.Location = new System.Drawing.Point(670, 80);
-            this.PriceFromComboBox.Name = "PriceFromComboBox";
-            this.PriceFromComboBox.Size = new System.Drawing.Size(96, 33);
-            this.PriceFromComboBox.TabIndex = 11;
+            this.MainPanel.Resize += new System.EventHandler(this.MainPanel_Resize);
             // 
             // MainForm
             // 

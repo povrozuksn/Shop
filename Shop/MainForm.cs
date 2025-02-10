@@ -44,8 +44,7 @@ namespace Shop
     
     public partial class MainForm : Form
     {
-        static int count = 10;
-        Product[] products = new Product[count];
+        public static List<Product> products = new List<Product>();
 
         public MainForm()
         {
@@ -54,24 +53,26 @@ namespace Shop
             NameLabel.Visible = false;
             FiltrPanel.Height = HideButton.Height;
             HideButton.Text = "Развернуть";
+            
+            products.Clear();
+            string[] strs = System.IO.File.ReadAllLines("../../Pictures/products.txt");
 
-            products[0] = new Product("Хлеб ржаной", "Хлебобулочные изделия", 259, 36, 30);
-            products[1] = new Product("Хлеб белый", "Хлебобулочные изделия", 265, 24, 40);
-            products[2] = new Product("Молоко 32%", "Кисломолочные продукты", 64, 7, 90);
-            products[3] = new Product("Кефир", "Кисломолочные продукты", 53, 14, 70);
-            products[4] = new Product("Колбаса", "Мясные продукты", 257, 7, 170);
-            products[5] = new Product("Сосиски", "Мясные продукты", 240, 10, 300);
-            products[6] = new Product("Апельсины", "Фрукты", 43, 20, 380);
-            products[7] = new Product("Мандарины", "Фрукты", 38, 20, 90);
-            products[8] = new Product("Капуста", "Овощи", 25, 100, 52);
-            products[9] = new Product("Свекла", "Овощи", 57, 100, 100);
-
+            foreach (string str in strs) 
+            {
+                string[] parts = str.Split(new string[] {", "}, StringSplitOptions.None);
+                Product product = new Product(  parts[0], 
+                                                parts[1], 
+                                                Convert.ToInt32(parts[2]),
+                                                Convert.ToInt32(parts[3]),
+                                                Convert.ToInt32(parts[4])   );
+                products.Add(product);
+            }
         }
 
         private void picProduct_Click(object sender, EventArgs e)
         {
             PictureBox pb = (PictureBox)sender;
-            for(int i=0; i<count; i++)
+            for(int i=0; i<products.Count; i++)
             {
                 if(pb.Tag.ToString() == products[i].name)
                 {
@@ -84,7 +85,7 @@ namespace Shop
         private void lblProduct_Click(object sender, EventArgs e)
         {
             Label lbl = (Label)sender;
-            for (int i=0; i<count; i++)
+            for (int i=0; i< products.Count; i++)
             {
                 if (lbl.Text == products[i].name)
                 {
@@ -118,7 +119,7 @@ namespace Shop
         {
             int x = 30;
             int y = 25;
-            for(int i=0; i<count; i++)
+            for(int i=0; i<products.Count; i++)
             {
                 products[i].picture.Location = new Point(x, y);
                 products[i].picture.Size = new Size(215, 178);
@@ -144,7 +145,7 @@ namespace Shop
         {
             int x = 30;
             int y = 25;
-            for (int i = 0; i < count; i++)
+            for (int i = 0; i < products.Count; i++)
             {
                 products[i].picture.Visible = true;
                 products[i].label.Visible = true;
@@ -193,6 +194,11 @@ namespace Shop
                     }
                 }
             }
+        }
+
+        private void MainPanel_Resize(object sender, EventArgs e)
+        {
+           FindButton_Click(null, null);
         }
     }
 }
