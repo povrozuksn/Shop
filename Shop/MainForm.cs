@@ -200,5 +200,11 @@ namespace Shop
         {
            FindButton_Click(null, null);
         }
+
+        private void AuthButton_Click(object sender, EventArgs e)
+        {
+            AuthForm authForm = new AuthForm();
+            authForm.ShowDialog();
+        }
     }
 }
