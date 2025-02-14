@@ -34,6 +34,7 @@
             this.CalLabel = new System.Windows.Forms.Label();
             this.PeriodLabel = new System.Windows.Forms.Label();
             this.PriceLabel = new System.Windows.Forms.Label();
+            this.OpisTextBox = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.ProductPictureBox)).BeginInit();
             this.SuspendLayout();
             // 
@@ -76,7 +77,7 @@
             // PeriodLabel
             // 
             this.PeriodLabel.AutoSize = true;
-            this.PeriodLabel.Location = new System.Drawing.Point(425, 102);
+            this.PeriodLabel.Location = new System.Drawing.Point(425, 73);
             this.PeriodLabel.Name = "PeriodLabel";
             this.PeriodLabel.Size = new System.Drawing.Size(64, 25);
             this.PeriodLabel.TabIndex = 4;
@@ -85,17 +86,28 @@
             // PriceLabel
             // 
             this.PriceLabel.AutoSize = true;
-            this.PriceLabel.Location = new System.Drawing.Point(425, 185);
+            this.PriceLabel.Location = new System.Drawing.Point(425, 116);
             this.PriceLabel.Name = "PriceLabel";
             this.PriceLabel.Size = new System.Drawing.Size(64, 25);
             this.PriceLabel.TabIndex = 5;
             this.PriceLabel.Text = "label1";
+            // 
+            // OpisTextBox
+            // 
+            this.OpisTextBox.Location = new System.Drawing.Point(390, 159);
+            this.OpisTextBox.Multiline = true;
+            this.OpisTextBox.Name = "OpisTextBox";
+            this.OpisTextBox.ReadOnly = true;
+            this.OpisTextBox.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
+            this.OpisTextBox.Size = new System.Drawing.Size(377, 371);
+            this.OpisTextBox.TabIndex = 6;
             // 
             // ProductForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 25F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(781, 543);
+            this.Controls.Add(this.OpisTextBox);
             this.Controls.Add(this.PriceLabel);
             this.Controls.Add(this.PeriodLabel);
             this.Controls.Add(this.CalLabel);
@@ -122,5 +134,6 @@
         private System.Windows.Forms.Label CalLabel;
         private System.Windows.Forms.Label PeriodLabel;
         private System.Windows.Forms.Label PriceLabel;
+        private System.Windows.Forms.TextBox OpisTextBox;
     }
 }

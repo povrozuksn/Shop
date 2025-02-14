@@ -23,6 +23,12 @@ namespace Shop
             CalLabel.Text = "Энергетическая ценность: " + product.сalorie.ToString() + " Ккал";
             PeriodLabel.Text = "Срок хранения: " + product.period.ToString() + " суток";
             PriceLabel.Text = "Цена: " + product.price.ToString() + " руб.";
+
+            try
+            {
+                OpisTextBox.Text = System.IO.File.ReadAllText("../../Pictures/" + product.name + ".txt");
+            }
+            catch (Exception) { }
         }
 
         private void ProductForm_Load(object sender, EventArgs e)
