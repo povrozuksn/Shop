@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.AuthPanel = new System.Windows.Forms.Panel();
             this.RegButton = new System.Windows.Forms.Button();
             this.NameLabel = new System.Windows.Forms.Label();
@@ -47,8 +48,11 @@
             this.NameTextBox = new System.Windows.Forms.TextBox();
             this.HideButton = new System.Windows.Forms.Button();
             this.MainPanel = new System.Windows.Forms.Panel();
+            this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.AddProduktToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.AuthPanel.SuspendLayout();
             this.FiltrPanel.SuspendLayout();
+            this.contextMenuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
             // AuthPanel
@@ -268,11 +272,27 @@
             this.MainPanel.TabIndex = 2;
             this.MainPanel.Resize += new System.EventHandler(this.MainPanel_Resize);
             // 
+            // contextMenuStrip1
+            // 
+            this.contextMenuStrip1.ImageScalingSize = new System.Drawing.Size(20, 20);
+            this.contextMenuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.AddProduktToolStripMenuItem});
+            this.contextMenuStrip1.Name = "contextMenuStrip1";
+            this.contextMenuStrip1.Size = new System.Drawing.Size(211, 56);
+            // 
+            // AddProduktToolStripMenuItem
+            // 
+            this.AddProduktToolStripMenuItem.Name = "AddProduktToolStripMenuItem";
+            this.AddProduktToolStripMenuItem.Size = new System.Drawing.Size(210, 24);
+            this.AddProduktToolStripMenuItem.Text = "Добавить продукт";
+            this.AddProduktToolStripMenuItem.Click += new System.EventHandler(this.AddProduktToolStripMenuItem_Click);
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 25F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1076, 621);
+            this.ContextMenuStrip = this.contextMenuStrip1;
             this.Controls.Add(this.MainPanel);
             this.Controls.Add(this.FiltrPanel);
             this.Controls.Add(this.AuthPanel);
@@ -286,6 +306,7 @@
             this.AuthPanel.PerformLayout();
             this.FiltrPanel.ResumeLayout(false);
             this.FiltrPanel.PerformLayout();
+            this.contextMenuStrip1.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -311,6 +332,8 @@
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.ComboBox PriceToComboBox;
+        private System.Windows.Forms.ContextMenuStrip contextMenuStrip1;
+        private System.Windows.Forms.ToolStripMenuItem AddProduktToolStripMenuItem;
     }
 }
 

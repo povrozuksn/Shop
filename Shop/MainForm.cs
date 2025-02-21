@@ -8,6 +8,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement.StartPanel;
 
 namespace Shop
 {
@@ -203,8 +204,59 @@ namespace Shop
 
         private void AuthButton_Click(object sender, EventArgs e)
         {
-            AuthForm authForm = new AuthForm();
-            authForm.ShowDialog();
+            if (AuthButton.Text == "Войти")
+            {
+                AuthForm authForm = new AuthForm();
+                authForm.ShowDialog();
+
+                if(AuthForm.username != "")
+                {
+                    AuthButton.Text = "Выйти";
+                    NameLabel.Visible = true;
+                    if (AuthForm.isAdmin)
+                    {
+                        NameLabel.Text = "Вы авторизовались как АДМИНИСТРАТОР";
+                    }
+                    else 
+                    {
+                        NameLabel.Text = "Вы авторизовались как " + AuthForm.username;
+                    }
+                    RegButton.Visible = false;
+                }
+                else 
+                {
+                    AuthForm.username = "";
+                    AuthButton.Text = "Войти";
+                    NameLabel.Visible = false;
+                    NameLabel.Text = AuthForm.username;
+                    RegButton.Visible = true;
+                    AuthForm.isAdmin = false;
+                }
+            }
+            else
+            {
+                AuthForm.username = "";
+                AuthButton.Text = "Войти";
+                NameLabel.Visible = false;
+                NameLabel.Text = AuthForm.username;
+                RegButton.Visible = true;
+                AuthForm.isAdmin = false;
+            }
+
+
+        }
+
+        private void AddProduktToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (AuthForm.isAdmin)
+            {
+                AddForm addForm = new AddForm();
+                addForm.ShowDialog();
+            }
+            else 
+            {
+                MessageBox.Show("Добавлять объекты могут только администраторы");
+            }
         }
     }
 }

@@ -32,7 +32,7 @@ namespace Shop
                                               NameTB.Text + ", " +
                                               SecondnameTB.Text + ", " +
                                               LoginTB.Text + ", " +
-                                              PasswordTB.Text +
+                                              PasswordTB.Text + ", 0" +
                                               Environment.NewLine);
                     MessageBox.Show("Регистрация прошла успешно");
                     Close();
