@@ -50,6 +50,7 @@
             this.MainPanel = new System.Windows.Forms.Panel();
             this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.AddProduktToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.DeleteProductToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.AuthPanel.SuspendLayout();
             this.FiltrPanel.SuspendLayout();
             this.contextMenuStrip1.SuspendLayout();
@@ -276,9 +277,10 @@
             // 
             this.contextMenuStrip1.ImageScalingSize = new System.Drawing.Size(20, 20);
             this.contextMenuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.AddProduktToolStripMenuItem});
+            this.AddProduktToolStripMenuItem,
+            this.DeleteProductToolStripMenuItem});
             this.contextMenuStrip1.Name = "contextMenuStrip1";
-            this.contextMenuStrip1.Size = new System.Drawing.Size(211, 56);
+            this.contextMenuStrip1.Size = new System.Drawing.Size(211, 80);
             // 
             // AddProduktToolStripMenuItem
             // 
@@ -286,6 +288,13 @@
             this.AddProduktToolStripMenuItem.Size = new System.Drawing.Size(210, 24);
             this.AddProduktToolStripMenuItem.Text = "Добавить продукт";
             this.AddProduktToolStripMenuItem.Click += new System.EventHandler(this.AddProduktToolStripMenuItem_Click);
+            // 
+            // DeleteProductToolStripMenuItem
+            // 
+            this.DeleteProductToolStripMenuItem.Name = "DeleteProductToolStripMenuItem";
+            this.DeleteProductToolStripMenuItem.Size = new System.Drawing.Size(210, 24);
+            this.DeleteProductToolStripMenuItem.Text = "Удалить продукт";
+            this.DeleteProductToolStripMenuItem.Click += new System.EventHandler(this.DeleteProductToolStripMenuItem_Click);
             // 
             // MainForm
             // 
@@ -334,6 +343,7 @@
         private System.Windows.Forms.ComboBox PriceToComboBox;
         private System.Windows.Forms.ContextMenuStrip contextMenuStrip1;
         private System.Windows.Forms.ToolStripMenuItem AddProduktToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem DeleteProductToolStripMenuItem;
     }
 }
 

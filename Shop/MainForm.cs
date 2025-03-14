@@ -129,7 +129,7 @@ namespace Shop
                 MainPanel.Controls.Add(products[i].picture);
 
                 products[i].label.Location = new Point(x, y+200);
-                products[i].label.Size = new Size(136, 25);
+                products[i].label.Size = new Size(200, 25);
                 products[i].label.Click += new EventHandler(lblProduct_Click);
                 MainPanel.Controls.Add(products[i].label);
 
@@ -257,6 +257,20 @@ namespace Shop
             {
                 MessageBox.Show("Добавлять объекты могут только администраторы");
             }
+        }
+
+        private void DeleteProductToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (AuthForm.isAdmin)
+            {
+                DeleteForm delForm = new DeleteForm();
+                delForm.ShowDialog();
+            }
+            else
+            {
+                MessageBox.Show("Удалять объекты могут только администраторы");
+            }
+
         }
     }
 }

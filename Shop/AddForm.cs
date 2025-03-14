@@ -33,12 +33,12 @@ namespace Shop
                 return;
             }
 
-            System.IO.File.AppendAllText("../../Pictures/products.txt", Environment.NewLine +
-                                                                        NameTextBox.Text + ", " +
+            System.IO.File.AppendAllText("../../Pictures/products.txt", NameTextBox.Text + ", " +
                                                                         CategoryComboBox.Text + ", " +
                                                                         KallTextBox.Text + ", " +
                                                                         PeriodTextBox.Text + ", " + 
-                                                                        PriceTextBox.Text);
+                                                                        PriceTextBox.Text +
+                                                                        Environment.NewLine);
 
 
             if(FileName != "")
