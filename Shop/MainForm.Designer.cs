@@ -51,6 +51,7 @@
             this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.AddProduktToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.DeleteProductToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.selectedButton = new System.Windows.Forms.Button();
             this.AuthPanel.SuspendLayout();
             this.FiltrPanel.SuspendLayout();
             this.contextMenuStrip1.SuspendLayout();
@@ -59,6 +60,7 @@
             // AuthPanel
             // 
             this.AuthPanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(224)))), ((int)(((byte)(192)))));
+            this.AuthPanel.Controls.Add(this.selectedButton);
             this.AuthPanel.Controls.Add(this.RegButton);
             this.AuthPanel.Controls.Add(this.NameLabel);
             this.AuthPanel.Controls.Add(this.AuthButton);
@@ -280,21 +282,31 @@
             this.AddProduktToolStripMenuItem,
             this.DeleteProductToolStripMenuItem});
             this.contextMenuStrip1.Name = "contextMenuStrip1";
-            this.contextMenuStrip1.Size = new System.Drawing.Size(211, 80);
+            this.contextMenuStrip1.Size = new System.Drawing.Size(205, 52);
             // 
             // AddProduktToolStripMenuItem
             // 
             this.AddProduktToolStripMenuItem.Name = "AddProduktToolStripMenuItem";
-            this.AddProduktToolStripMenuItem.Size = new System.Drawing.Size(210, 24);
+            this.AddProduktToolStripMenuItem.Size = new System.Drawing.Size(204, 24);
             this.AddProduktToolStripMenuItem.Text = "Добавить продукт";
             this.AddProduktToolStripMenuItem.Click += new System.EventHandler(this.AddProduktToolStripMenuItem_Click);
             // 
             // DeleteProductToolStripMenuItem
             // 
             this.DeleteProductToolStripMenuItem.Name = "DeleteProductToolStripMenuItem";
-            this.DeleteProductToolStripMenuItem.Size = new System.Drawing.Size(210, 24);
+            this.DeleteProductToolStripMenuItem.Size = new System.Drawing.Size(204, 24);
             this.DeleteProductToolStripMenuItem.Text = "Удалить продукт";
             this.DeleteProductToolStripMenuItem.Click += new System.EventHandler(this.DeleteProductToolStripMenuItem_Click);
+            // 
+            // selectedButton
+            // 
+            this.selectedButton.Location = new System.Drawing.Point(887, 7);
+            this.selectedButton.Name = "selectedButton";
+            this.selectedButton.Size = new System.Drawing.Size(174, 34);
+            this.selectedButton.TabIndex = 3;
+            this.selectedButton.Text = "Избранное";
+            this.selectedButton.UseVisualStyleBackColor = true;
+            this.selectedButton.Click += new System.EventHandler(this.selectedButton_Click);
             // 
             // MainForm
             // 
@@ -344,6 +356,7 @@
         private System.Windows.Forms.ContextMenuStrip contextMenuStrip1;
         private System.Windows.Forms.ToolStripMenuItem AddProduktToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem DeleteProductToolStripMenuItem;
+        private System.Windows.Forms.Button selectedButton;
     }
 }
 

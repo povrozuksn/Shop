@@ -54,20 +54,8 @@ namespace Shop
             NameLabel.Visible = false;
             FiltrPanel.Height = HideButton.Height;
             HideButton.Text = "Развернуть";
-            
-            products.Clear();
-            string[] strs = System.IO.File.ReadAllLines("../../Pictures/products.txt");
+            selectedButton.Visible = false;
 
-            foreach (string str in strs) 
-            {
-                string[] parts = str.Split(new string[] {", "}, StringSplitOptions.None);
-                Product product = new Product(  parts[0], 
-                                                parts[1], 
-                                                Convert.ToInt32(parts[2]),
-                                                Convert.ToInt32(parts[3]),
-                                                Convert.ToInt32(parts[4])   );
-                products.Add(product);
-            }
         }
 
         private void picProduct_Click(object sender, EventArgs e)
@@ -118,6 +106,21 @@ namespace Shop
 
         private void MainForm_Load(object sender, EventArgs e)
         {
+            products.Clear();
+            string[] strs = System.IO.File.ReadAllLines("../../Pictures/products.txt");
+
+            foreach (string str in strs)
+            {
+                string[] parts = str.Split(new string[] { ", " }, StringSplitOptions.None);
+                Product product = new Product(parts[0],
+                                                parts[1],
+                                                Convert.ToInt32(parts[2]),
+                                                Convert.ToInt32(parts[3]),
+                                                Convert.ToInt32(parts[4]));
+                products.Add(product);
+            }
+
+            MainPanel.Controls.Clear();
             int x = 30;
             int y = 25;
             for(int i=0; i<products.Count; i++)
@@ -181,7 +184,6 @@ namespace Shop
                     products[i].label.Visible = false;
                 }
 
-
                 if (products[i].picture.Visible)
                 {
                     products[i].picture.Location = new Point(x, y);
@@ -222,6 +224,7 @@ namespace Shop
                         NameLabel.Text = "Вы авторизовались как " + AuthForm.username;
                     }
                     RegButton.Visible = false;
+                    selectedButton.Visible = true;
                 }
                 else 
                 {
@@ -230,6 +233,7 @@ namespace Shop
                     NameLabel.Visible = false;
                     NameLabel.Text = AuthForm.username;
                     RegButton.Visible = true;
+                    selectedButton.Visible = false;
                     AuthForm.isAdmin = false;
                 }
             }
@@ -240,6 +244,7 @@ namespace Shop
                 NameLabel.Visible = false;
                 NameLabel.Text = AuthForm.username;
                 RegButton.Visible = true;
+                selectedButton.Visible = false;
                 AuthForm.isAdmin = false;
             }
 
@@ -257,6 +262,7 @@ namespace Shop
             {
                 MessageBox.Show("Добавлять объекты могут только администраторы");
             }
+            MainForm_Load(null, null);
         }
 
         private void DeleteProductToolStripMenuItem_Click(object sender, EventArgs e)
@@ -270,7 +276,13 @@ namespace Shop
             {
                 MessageBox.Show("Удалять объекты могут только администраторы");
             }
+            MainForm_Load(null, null);
+        }
 
+        private void selectedButton_Click(object sender, EventArgs e)
+        {
+            SelectedForm selected = new SelectedForm();
+            selected.ShowDialog();
         }
     }
 }

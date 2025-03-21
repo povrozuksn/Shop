@@ -35,6 +35,7 @@
             this.PeriodLabel = new System.Windows.Forms.Label();
             this.PriceLabel = new System.Windows.Forms.Label();
             this.OpisTextBox = new System.Windows.Forms.TextBox();
+            this.AddSelectedButton = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.ProductPictureBox)).BeginInit();
             this.SuspendLayout();
             // 
@@ -102,11 +103,23 @@
             this.OpisTextBox.Size = new System.Drawing.Size(377, 371);
             this.OpisTextBox.TabIndex = 6;
             // 
+            // AddSelectedButton
+            // 
+            this.AddSelectedButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
+            this.AddSelectedButton.Location = new System.Drawing.Point(31, 482);
+            this.AddSelectedButton.Name = "AddSelectedButton";
+            this.AddSelectedButton.Size = new System.Drawing.Size(322, 47);
+            this.AddSelectedButton.TabIndex = 7;
+            this.AddSelectedButton.Text = "Добавить в избранное";
+            this.AddSelectedButton.UseVisualStyleBackColor = false;
+            this.AddSelectedButton.Click += new System.EventHandler(this.AddSelectedButton_Click);
+            // 
             // ProductForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 25F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(781, 543);
+            this.Controls.Add(this.AddSelectedButton);
             this.Controls.Add(this.OpisTextBox);
             this.Controls.Add(this.PriceLabel);
             this.Controls.Add(this.PeriodLabel);
@@ -135,5 +148,6 @@
         private System.Windows.Forms.Label PeriodLabel;
         private System.Windows.Forms.Label PriceLabel;
         private System.Windows.Forms.TextBox OpisTextBox;
+        private System.Windows.Forms.Button AddSelectedButton;
     }
 }

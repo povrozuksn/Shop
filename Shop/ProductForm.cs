@@ -12,9 +12,12 @@ namespace Shop
 {
     public partial class ProductForm : Form
     {
-        public ProductForm(Product product)
+        Product product;
+        public ProductForm(Product _product)
         {
             InitializeComponent();
+
+            product = _product;
 
             Text = product.name;
             ProductLabel.Text = "Наименование товара: " + product.name;
@@ -34,6 +37,11 @@ namespace Shop
         private void ProductForm_Load(object sender, EventArgs e)
         {
 
+        }
+
+        private void AddSelectedButton_Click(object sender, EventArgs e)
+        {
+            SelectedForm.selectProduct.Add(product);
         }
     }
 }

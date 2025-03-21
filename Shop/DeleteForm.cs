@@ -32,12 +32,13 @@ namespace Shop
             var result = MessageBox.Show("Вы действительно хотите удалить выбранный объект", "Удаление объекта", MessageBoxButtons.YesNo);
             if(result == DialogResult.Yes)
             {
+                string name = "";
                 System.IO.File.Delete("../../Pictures/products.txt");
                 for (int i = 0; i < MainForm.products.Count; i++)
                 {
                     if (DelTextBox.Text == MainForm.products[i].name)
                     {
-
+                        name = MainForm.products[i].name;
                     }
                     else 
                     {
@@ -49,6 +50,7 @@ namespace Shop
                                                                             Environment.NewLine );
                     }
                 }
+
                 MessageBox.Show("Объект успешно удален");
                 Close();
             }
