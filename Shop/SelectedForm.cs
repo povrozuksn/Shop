@@ -12,7 +12,7 @@ namespace Shop
 {
     public partial class SelectedForm : Form
     {
-        public static List<Product> selectProduct = new List<Product>();
+        public static Dictionary<Product, int> selectProduct = new Dictionary<Product, int>();
 
         public SelectedForm()
         {
@@ -21,12 +21,22 @@ namespace Shop
 
             int x = 30;
             int y = 25;
-            for (int i = 0; i < selectProduct.Count; i++) 
+            foreach (KeyValuePair<Product, int> select_product in selectProduct) 
             {
-                selectProduct[i].picture.Location = new Point(x, y);
-                selectProduct[i].picture.Size = new Size(215, 178);
-                selectProduct[i].picture.SizeMode = PictureBoxSizeMode.Zoom;
-                Controls.Add(selectProduct[i].picture);
+                Product product = select_product.Key;
+
+                PictureBox pic = new PictureBox();
+                pic.Location = new Point(x, y);
+                pic.Size = new Size(215, 178);
+                pic.SizeMode = PictureBoxSizeMode.Zoom;
+                pic.Image = product.picture.Image;
+                Controls.Add(pic);
+
+                Label lbl = new Label();
+                lbl.Location = new Point(x+300,y);
+                lbl.Size = new Size(200, 20);
+                lbl.Text = "Количество: " + select_product.Value.ToString();
+                Controls.Add(lbl);
 
                 y += 220;
             }
