@@ -20,7 +20,7 @@ namespace Shop
             Text = "Выбранные объекты пользователя: " + AuthForm.username;
 
             int x = 30;
-            int y = 25;
+            int y = 150;
             foreach (KeyValuePair<Product, int> select_product in selectProduct) 
             {
                 Product product = select_product.Key;
@@ -79,6 +79,7 @@ namespace Shop
                 kol.Location = new Point(x + 600, y + 20);
                 kol.Size = new Size(120, 20);
                 kol.Value = select_product.Value;
+                kol.ValueChanged += new EventHandler(count_changed);
                 Controls.Add(kol);
 
                 Label lbl_price = new Label();
@@ -89,8 +90,8 @@ namespace Shop
 
                 Label lbl_stoim = new Label();
                 lbl_stoim.Location = new Point(x + 600, y + 80);
-                lbl_stoim.Size = new Size(100, 20);
-                lbl_stoim.Text = "Стоимость: " ;
+                lbl_stoim.Size = new Size(200, 20);
+                lbl_stoim.Text = "Стоимость: " + select_product.Key.price.ToString();
                 Controls.Add(lbl_stoim);
                 #endregion
 
@@ -114,6 +115,35 @@ namespace Shop
                     frm.Show();
                 }
             }
+        }
+
+        private void count_changed(object sender, EventArgs e)
+        {
+            NumericUpDown num = (NumericUpDown)sender;
+
+            for(int i=0; i<selectProduct.Count; i++)
+            {
+                if(num.Location == new Point(630, 220*i + 170 + AutoScrollPosition.Y))
+                {
+                    int price = 0;
+
+                    foreach (Control ctrl in Controls)
+                    { 
+                        if(ctrl is Label && ctrl.Location == new Point(630, 220*i + 210 + AutoScrollPosition.Y))
+                        {
+                            price = Convert.ToInt32(ctrl.Text.Replace("Цена: ", ""));
+                        }
+                    }
+                    foreach (Control ctrl in Controls)
+                    {
+                        if (ctrl is Label && ctrl.Location == new Point(630, 220 * i + 230 + AutoScrollPosition.Y))
+                        {
+                            ctrl.Text = "Стоимость: " + (price * num.Value).ToString();
+                        }
+                    }
+                }
+            }
+            //Вставить вызов функции пересчета общей стоимости 
         }
     }
 }
