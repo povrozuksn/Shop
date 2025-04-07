@@ -13,15 +13,23 @@ namespace Shop
     public partial class SelectedForm : Form
     {
         public static Dictionary<Product, int> selectProduct = new Dictionary<Product, int>();
+        int TotalPrice = 0;
 
         public SelectedForm()
         {
             InitializeComponent();
             Text = "Выбранные объекты пользователя: " + AuthForm.username;
+            ReDraw();
+        }
+
+        void ReDraw()
+        {
+            Controls.Clear();
+            Controls.Add(TotalPriceLabel);
 
             int x = 30;
             int y = 150;
-            foreach (KeyValuePair<Product, int> select_product in selectProduct) 
+            foreach (KeyValuePair<Product, int> select_product in selectProduct)
             {
                 Product product = select_product.Key;
 
@@ -36,13 +44,13 @@ namespace Shop
 
                 #region 2 столбец - Характеристики
                 Label lbl_name = new Label();
-                lbl_name.Location = new Point(x+250, y);
+                lbl_name.Location = new Point(x + 250, y);
                 lbl_name.Size = new Size(300, 20);
                 lbl_name.Text = "Товар: " + select_product.Key.name.ToString();
                 Controls.Add(lbl_name);
 
                 Label lbl_cat = new Label();
-                lbl_cat.Location = new Point(x+250, y+20);
+                lbl_cat.Location = new Point(x + 250, y + 20);
                 lbl_cat.Size = new Size(300, 20);
                 lbl_cat.Text = "Категория: " + select_product.Key.category.ToString();
                 Controls.Add(lbl_cat);
@@ -70,7 +78,7 @@ namespace Shop
 
                 #region 3 столбец - Количество+Цена
                 Label lbl_kol = new Label();
-                lbl_kol.Location = new Point(x+600,y);
+                lbl_kol.Location = new Point(x + 600, y);
                 lbl_kol.Size = new Size(100, 20);
                 lbl_kol.Text = "Количество:";
                 Controls.Add(lbl_kol);
@@ -83,7 +91,7 @@ namespace Shop
                 Controls.Add(kol);
 
                 Label lbl_price = new Label();
-                lbl_price.Location = new Point(x+600, y+60);
+                lbl_price.Location = new Point(x + 600, y + 60);
                 lbl_price.Size = new Size(100, 20);
                 lbl_price.Text = "Цена: " + select_product.Key.price.ToString();
                 Controls.Add(lbl_price);
@@ -91,7 +99,7 @@ namespace Shop
                 Label lbl_stoim = new Label();
                 lbl_stoim.Location = new Point(x + 600, y + 80);
                 lbl_stoim.Size = new Size(200, 20);
-                lbl_stoim.Text = "Стоимость: " + select_product.Key.price.ToString();
+                lbl_stoim.Text = "Стоимость: " + (select_product.Key.price * select_product.Value).ToString();
                 Controls.Add(lbl_stoim);
                 #endregion
 
@@ -102,6 +110,8 @@ namespace Shop
 
                 y += 220;
             }
+            Calculate();
+            TotalPriceLabel.Text = "Общая стоимость: " + TotalPrice.ToString();
         }
 
         private void open_product(object sender, EventArgs e)
@@ -121,15 +131,16 @@ namespace Shop
         {
             NumericUpDown num = (NumericUpDown)sender;
 
-            for(int i=0; i<selectProduct.Count; i++)
+            for (int i = 0; i < selectProduct.Count; i++)
             {
-                if(num.Location == new Point(630, 220*i + 170 + AutoScrollPosition.Y))
+                if (num.Location == new Point(630, 220 * i + 170 + AutoScrollPosition.Y))
                 {
                     int price = 0;
+                    string name = "";
 
                     foreach (Control ctrl in Controls)
-                    { 
-                        if(ctrl is Label && ctrl.Location == new Point(630, 220*i + 210 + AutoScrollPosition.Y))
+                    {
+                        if (ctrl is Label && ctrl.Location == new Point(630, 220 * i + 210 + AutoScrollPosition.Y))
                         {
                             price = Convert.ToInt32(ctrl.Text.Replace("Цена: ", ""));
                         }
@@ -141,9 +152,33 @@ namespace Shop
                             ctrl.Text = "Стоимость: " + (price * num.Value).ToString();
                         }
                     }
+                    foreach (Control ctrl in Controls)
+                    {
+                        if (ctrl is Label && ctrl.Location == new Point(280, 220 * i + 150 + AutoScrollPosition.Y))
+                        {
+                            name = ctrl.Text.Replace("Товар: ", "");       
+                        }
+                    }
+                    foreach (Product product in MainForm.products)
+                    {
+                        if(product.name ==  name)
+                        {
+                            selectProduct[product] = Convert.ToInt32(num.Value);
+                        }
+                    }
                 }
             }
-            //Вставить вызов функции пересчета общей стоимости 
+            Calculate();
+            TotalPriceLabel.Text = "Общая стоимость: " + TotalPrice.ToString();
+        }
+
+        void Calculate()
+        {
+            TotalPrice = 0;
+            foreach (KeyValuePair<Product, int> select_product in selectProduct)
+            {
+                TotalPrice += select_product.Value * select_product.Key.price;
+            }
         }
     }
 }
