@@ -104,7 +104,12 @@ namespace Shop
                 #endregion
 
                 #region 4 столбец - Кнопка удаления
-
+                Button btn_del = new Button();
+                btn_del.Location = new Point(x + 900, y);
+                btn_del.Size = new Size(200, 30);
+                btn_del.Text = "Удалить";
+                btn_del.Click += new EventHandler(DelClick);
+                Controls.Add(btn_del);
                 #endregion
 
 
@@ -112,6 +117,28 @@ namespace Shop
             }
             Calculate();
             TotalPriceLabel.Text = "Общая стоимость: " + TotalPrice.ToString();
+        }
+
+        void DelClick(object sender, EventArgs e)
+        {
+            int i = 0;
+            Dictionary<Product, int> selectProduct1 = new Dictionary<Product, int>();
+            Button btn = (Button)sender;
+            foreach (KeyValuePair<Product, int> select_product in selectProduct)
+            {
+                Product product = select_product.Key;
+                if(btn.Location == new Point(30 + 900, 220 * i + 150 + AutoScrollPosition.Y))
+                {
+
+                }
+                else
+                {
+                    selectProduct1[select_product.Key] = select_product.Value;
+                }
+                i++;
+            }
+            selectProduct = selectProduct1;
+            ReDraw();
         }
 
         private void open_product(object sender, EventArgs e)
