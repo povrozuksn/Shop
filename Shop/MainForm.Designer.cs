@@ -30,6 +30,8 @@
         {
             this.components = new System.ComponentModel.Container();
             this.AuthPanel = new System.Windows.Forms.Panel();
+            this.HelpButton = new System.Windows.Forms.Button();
+            this.selectedButton = new System.Windows.Forms.Button();
             this.RegButton = new System.Windows.Forms.Button();
             this.NameLabel = new System.Windows.Forms.Label();
             this.AuthButton = new System.Windows.Forms.Button();
@@ -51,7 +53,7 @@
             this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.AddProduktToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.DeleteProductToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.selectedButton = new System.Windows.Forms.Button();
+            this.FeedBackButton = new System.Windows.Forms.Button();
             this.AuthPanel.SuspendLayout();
             this.FiltrPanel.SuspendLayout();
             this.contextMenuStrip1.SuspendLayout();
@@ -60,6 +62,8 @@
             // AuthPanel
             // 
             this.AuthPanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(224)))), ((int)(((byte)(192)))));
+            this.AuthPanel.Controls.Add(this.FeedBackButton);
+            this.AuthPanel.Controls.Add(this.HelpButton);
             this.AuthPanel.Controls.Add(this.selectedButton);
             this.AuthPanel.Controls.Add(this.RegButton);
             this.AuthPanel.Controls.Add(this.NameLabel);
@@ -67,8 +71,28 @@
             this.AuthPanel.Dock = System.Windows.Forms.DockStyle.Top;
             this.AuthPanel.Location = new System.Drawing.Point(0, 0);
             this.AuthPanel.Name = "AuthPanel";
-            this.AuthPanel.Size = new System.Drawing.Size(1076, 47);
+            this.AuthPanel.Size = new System.Drawing.Size(1129, 47);
             this.AuthPanel.TabIndex = 0;
+            // 
+            // HelpButton
+            // 
+            this.HelpButton.Location = new System.Drawing.Point(814, 7);
+            this.HelpButton.Name = "HelpButton";
+            this.HelpButton.Size = new System.Drawing.Size(160, 34);
+            this.HelpButton.TabIndex = 4;
+            this.HelpButton.Text = "Помощь";
+            this.HelpButton.UseVisualStyleBackColor = true;
+            this.HelpButton.Click += new System.EventHandler(this.HelpButton_Click);
+            // 
+            // selectedButton
+            // 
+            this.selectedButton.Location = new System.Drawing.Point(634, 7);
+            this.selectedButton.Name = "selectedButton";
+            this.selectedButton.Size = new System.Drawing.Size(174, 34);
+            this.selectedButton.TabIndex = 3;
+            this.selectedButton.Text = "Избранное";
+            this.selectedButton.UseVisualStyleBackColor = true;
+            this.selectedButton.Click += new System.EventHandler(this.selectedButton_Click);
             // 
             // RegButton
             // 
@@ -118,7 +142,7 @@
             this.FiltrPanel.Dock = System.Windows.Forms.DockStyle.Top;
             this.FiltrPanel.Location = new System.Drawing.Point(0, 47);
             this.FiltrPanel.Name = "FiltrPanel";
-            this.FiltrPanel.Size = new System.Drawing.Size(1076, 120);
+            this.FiltrPanel.Size = new System.Drawing.Size(1129, 120);
             this.FiltrPanel.TabIndex = 1;
             // 
             // label6
@@ -271,7 +295,7 @@
             this.MainPanel.Dock = System.Windows.Forms.DockStyle.Fill;
             this.MainPanel.Location = new System.Drawing.Point(0, 167);
             this.MainPanel.Name = "MainPanel";
-            this.MainPanel.Size = new System.Drawing.Size(1076, 454);
+            this.MainPanel.Size = new System.Drawing.Size(1129, 454);
             this.MainPanel.TabIndex = 2;
             this.MainPanel.Resize += new System.EventHandler(this.MainPanel_Resize);
             // 
@@ -298,21 +322,22 @@
             this.DeleteProductToolStripMenuItem.Text = "Удалить продукт";
             this.DeleteProductToolStripMenuItem.Click += new System.EventHandler(this.DeleteProductToolStripMenuItem_Click);
             // 
-            // selectedButton
+            // FeedBackButton
             // 
-            this.selectedButton.Location = new System.Drawing.Point(887, 7);
-            this.selectedButton.Name = "selectedButton";
-            this.selectedButton.Size = new System.Drawing.Size(174, 34);
-            this.selectedButton.TabIndex = 3;
-            this.selectedButton.Text = "Избранное";
-            this.selectedButton.UseVisualStyleBackColor = true;
-            this.selectedButton.Click += new System.EventHandler(this.selectedButton_Click);
+            this.FeedBackButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.FeedBackButton.Location = new System.Drawing.Point(980, 7);
+            this.FeedBackButton.Name = "FeedBackButton";
+            this.FeedBackButton.Size = new System.Drawing.Size(142, 34);
+            this.FeedBackButton.TabIndex = 5;
+            this.FeedBackButton.Text = "Обратная связь";
+            this.FeedBackButton.UseVisualStyleBackColor = true;
+            this.FeedBackButton.Click += new System.EventHandler(this.FeedBackButton_Click);
             // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 25F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1076, 621);
+            this.ClientSize = new System.Drawing.Size(1129, 621);
             this.ContextMenuStrip = this.contextMenuStrip1;
             this.Controls.Add(this.MainPanel);
             this.Controls.Add(this.FiltrPanel);
@@ -357,6 +382,8 @@
         private System.Windows.Forms.ToolStripMenuItem AddProduktToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem DeleteProductToolStripMenuItem;
         private System.Windows.Forms.Button selectedButton;
+        private System.Windows.Forms.Button HelpButton;
+        private System.Windows.Forms.Button FeedBackButton;
     }
 }
 

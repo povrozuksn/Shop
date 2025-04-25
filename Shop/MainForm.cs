@@ -284,5 +284,17 @@ namespace Shop
             SelectedForm selected = new SelectedForm();
             selected.ShowDialog();
         }
+
+        private void HelpButton_Click(object sender, EventArgs e)
+        {
+            HelpForm help = new HelpForm();
+            help.Show();
+        }
+
+        private void FeedBackButton_Click(object sender, EventArgs e)
+        {
+            FeedBackForm feedback = new FeedBackForm();
+            feedback.Show();
+        }
     }
 }
