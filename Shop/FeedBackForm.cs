@@ -24,13 +24,36 @@ namespace Shop
             //Адрес: от кого
             MailAddress fromAdress = new MailAddress("serzh.povorov.95@mail.ru");
 
-            //Адрес: кому
-            MailAddress toAdress = new MailAddress("serzh.povorov.95@mail.ru");
+            if (TopicComboBox.Text == "")
+            {
+                MessageBox.Show("Поле <ТЕМА> обязательно для заполнения");
+            }
+            else
+            {
+                //Адрес: кому
+                MailAddress toAdress = new MailAddress("serzh.povorov.95@mail.ru");
+                //Формирование электронного сообщения
+                using (MailMessage mailMessage = new MailMessage(fromAdress, toAdress))
+                using (SmtpClient smtpClient = new SmtpClient())
+                {
+                    //Тема письма
+                    mailMessage.Subject = TopicComboBox.Text;
+                    //Текст письма
+                    mailMessage.Body = MessageTextBox.Text;
+                    mailMessage.IsBodyHtml = true;
 
-            //Тема письма
+                    smtpClient.Host = "smtp.mail.ru";
+                    smtpClient.Port = 587;
+                    smtpClient.EnableSsl = true;
+                    smtpClient.DeliveryMethod = SmtpDeliveryMethod.Network;
+                    smtpClient.UseDefaultCredentials = false;
+                    smtpClient.Credentials = new NetworkCredential(fromAdress.Address, "erfHctFyUSzczxkna0cw");
 
-
-            //Сообщение
+                    smtpClient.Send(mailMessage);
+                }
+                MessageBox.Show("Сообщение отправлено");
+                Close();
+            }
         }
     }
 }
