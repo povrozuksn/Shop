@@ -13,7 +13,7 @@ namespace Shop
     public partial class SelectedForm : Form
     {
         public static Dictionary<Product, int> selectProduct = new Dictionary<Product, int>();
-        int TotalPrice = 0;
+        public static int TotalPrice = 0;
 
         public SelectedForm()
         {
@@ -26,6 +26,7 @@ namespace Shop
         {
             Controls.Clear();
             Controls.Add(TotalPriceLabel);
+            Controls.Add(MailButton);
 
             int x = 30;
             int y = 150;
@@ -206,6 +207,12 @@ namespace Shop
             {
                 TotalPrice += select_product.Value * select_product.Key.price;
             }
+        }
+
+        private void MailButton_Click(object sender, EventArgs e)
+        {
+            SendMailForm send = new SendMailForm();
+            send.ShowDialog();
         }
     }
 }
